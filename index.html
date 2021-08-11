@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html>
+    
+    <head>
+        <meta charset="UTF-8">;
+    </head>
+
+    <body>
+        <style>
+            
+            .container {
+                background: black;
+                display: inline-block;
+                border: 5px solid black;
+
+            }
+
+            .grid {
+                display: grid;
+                grid-template-columns: repeat(3,180px);
+                grid-template-rows: repeat(3, 180px);
+                grid-gap: 5px;
+
+            }
+
+            .cell {
+                justify-content: center;
+                align-items: center;
+                display: flex;
+                font-family: Arial;
+                font-size: 3rem;
+                font-weight: bold;
+                background: white;
+
+            }
+
+            .cell:hover {
+                background: black;
+            }
+
+            .toolbar {
+                display: flex;
+                position: relative;
+                top: 10px;
+            }
+        </style>
+
+        <div class="container">
+            <div class="grid">
+                
+            </div>
+        </div>
+
+        <div class ='toolbar'>
+            <button id="reset">Clear</button>
+            <
+        </div>
+
+        <script src="scripts.js"></script>
+    </body>
+
+</html>
