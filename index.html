@@ -41,8 +41,11 @@
 
             .toolbar {
                 display: flex;
+                width: 78vw;
+                justify-content: space-between;
                 position: relative;
                 top: 10px;
+
             }
         </style>
 
@@ -53,8 +56,13 @@
         </div>
 
         <div class ='toolbar'>
-            <button id="reset">Clear</button>
-            <
+            <div>
+                Grid size (up to 50):
+                <input type="text" id="grid-size" size="5">
+                <button id="inputBtn">Go</button>
+            </div>
+            <button id="clearBtn">Clear</button>
+            
         </div>
 
         <script src="scripts.js"></script>

@@ -1,6 +1,15 @@
 const container = document.querySelector('.container');
 const grid = document.querySelector('.grid');
 
+
+let mouseDown = 0;
+document.body.onmousedown = function() {
+    ++mouseDown;
+}
+document.body.onmouseup = function() {
+    --mouseDown;
+}
+
 function populateGrid(n) {
 
     grid.style.gridTemplateRows = `repeat(${n},${65/n}vh)`;
@@ -14,6 +23,18 @@ function populateGrid(n) {
 
             newCell.classList.add('cell');
             newCell.setAttribute('id',`r${i+1}c${j+1}`);
+
+            newCell.addEventListener('mousedown', function() {
+
+                newCell.style.backgroundColor ='black';
+                
+            });
+            newCell.addEventListener('mouseover', function() {
+                if (mouseDown) {
+                    newCell.style.backgroundColor ='black';
+                }
+                
+            });
             
 
             grid.appendChild(newCell);
@@ -25,27 +46,6 @@ function populateGrid(n) {
 
 populateGrid(20);
 
-const cells = document.querySelectorAll('.cell');
 
-let mouseDown = 0;
-document.body.onmousedown = function() {
-    ++mouseDown;
-}
-document.body.onmouseup = function() {
-    --mouseDown;
-}
 
-cells.forEach( (cell) => {
-    cell.addEventListener('mousedown', function() {
 
-        cell.style.backgroundColor ='black';
-        
-    });
-
-    cell.addEventListener('mouseover', function() {
-        if (mouseDown) {
-            cell.style.backgroundColor ='black';
-        }
-        
-    });
-});
