@@ -1,5 +1,12 @@
 const container = document.querySelector('.container');
 const grid = document.querySelector('.grid');
+const clearBtn = document.querySelector('#clearBtn');
+const inputBtn = document.querySelector("#inputBtn");
+const inputSize = document.querySelector('#gridSize')
+
+const DEFAULT_SIZE = 20;
+
+let currentSize = DEFAULT_SIZE;
 
 
 let mouseDown = 0;
@@ -44,7 +51,27 @@ function populateGrid(n) {
     }
 }
 
-populateGrid(20);
+
+function clearGrid() {
+    grid.innerHTML = '';
+}
+
+function reloadGrid() {
+    clearGrid();
+    populateGrid(currentSize);
+}
+
+function changeSize(n) {
+    currentSize = n;
+    reloadGrid();
+
+}
+
+clearBtn.onclick = () => reloadGrid();
+
+inputBtn.onclick = () => changeSize(inputSize.value); 
+
+populateGrid(DEFAULT_SIZE);
 
 
 
